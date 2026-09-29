@@ -51,7 +51,7 @@ Route::post('/tasks', function (Request $request) {
     $task->description = $data['description'];
     $task->long_description = $data['long_description'] ?? null;
     $task->save();
-    return redirect()->route('tasks.show', ['idx' => $task->id])
+    return redirect()->route('tasks.show', ['task' => $task->id])
     ->with('success', 'Task created successfully!');
 })->name('tasks.store');
 
@@ -67,7 +67,7 @@ Route::put('/tasks/{task}', function (Task $task, Request $request) {
     $task->description = $data['description'];
     $task->long_description = $data['long_description'] ?? null;
     $task->save();
-    return redirect()->route('tasks.show', ['idx' => $task->id])
+    return redirect()->route('tasks.show', ['task' => $task->id])
     ->with('success', 'Task updated successfully!');
 })->name('tasks.update');
 
