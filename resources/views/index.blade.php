@@ -10,4 +10,8 @@
     @empty
         <div> There are no tasks!</div>
     @endforelse
+
+    @if ($tasksx->count())
+        {{ $tasksx->links() }}
+    @endif
 @endsection
